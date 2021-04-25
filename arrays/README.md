@@ -2,6 +2,9 @@
 
 These files contain a number of exercises pertaining to important array methods. They cover the following:
 
+* Reduce Challenge
+  * Tally up all the letters and numbers on random web page using map, filter, reduce and sort.
+
 * Static Methods ~ live on the mama Array rather than the prototype and aren't always available
   * Array.isArray()
   * Array.from()

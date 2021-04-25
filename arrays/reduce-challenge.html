@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Reduce!</title>
+  <link rel="stylesheet" href="../base.css">
+</head>
+
+<body>
+  <script>
+    // Grab all the text from a web page
+    // Count how many times each letter and number occurs
+    const text = `    Skip to main content
+    Skip to search
+
+Search MDN
+Sign in
+
+    Learn web development
+    Getting started with the Web
+    How the Web works
+
+    Change language
+
+Table of contents
+
+    Clients and servers
+    The other parts of the toolbox
+    So what happens, exactly?
+    Order in which component files are parsed
+    DNS explained
+    Packets explained
+    See also
+    Credit
+    In this module
+
+How the Web works
+
+    Previous
+    Overview: Getting started with the web
+
+How the web works provides a simplified view of what happens when you view a webpage in a web browser on your computer or phone.
+
+This theory is not essential to writing web code in the short term, but before long you'll really start to benefit from understanding what's happening in the background.
+Clients and servers
+
+Computers connected to the web are called clients and servers. A simplified diagram of how they interact might look like this:
+
+Two circles representing client and server. An arrow labelled request is going from client to server, and an arrow labelled responses is going from server to client
+
+    Clients are the typical web user's internet-connected devices (for example, your computer connected to your Wi-Fi, or your phone connected to your mobile network) and web-accessing software available on those devices (usually a web browser like Firefox or Chrome).
+    Servers are computers that store webpages, sites, or apps. When a client device wants to access a webpage, a copy of the webpage is downloaded from the server onto the client machine to be displayed in the user's web browser.
+
+The other parts of the toolbox
+
+The client and server we've described above don't tell the whole story. There are many other parts involved, and we'll describe them below.
+
+For now, let's imagine that the web is a road. On one end of the road is the client, which is like your house. On the other end of the road is the server, which is a shop you want to buy something from.
+
+In addition to the client and the server, we also need to say hello to:
+
+    Your internet connection: Allows you to send and receive data on the web. It's basically like the street between your house and the shop.
+    TCP/IP: Transmission Control Protocol and Internet Protocol are communication protocols that define how data should travel across the internet. This is like the transport mechanisms that let you place an order, go to the shop, and buy your goods. In our example, this is like a car or a bike (or however else you might get around).
+    DNS: Domain Name Servers are like an address book for websites. When you type a web address in your browser, the browser looks at the DNS to find the website's real address before it can retrieve the website. The browser needs to find out which server the website lives on, so it can send HTTP messages to the right place (see below). This is like looking up the address of the shop so you can access it.
+    HTTP: Hypertext Transfer Protocol is an application protocol that defines a language for clients and servers to speak to each other. This is like the language you use to order your goods.
+    Component files: A website is made up of many different files, which are like the different parts of the goods you buy from the shop. These files come in two main types:
+        Code files: Websites are built primarily from HTML, CSS, and JavaScript, though you'll meet other technologies a bit later.
+        Assets: This is a collective name for all the other stuff that makes up a website, such as images, music, video, Word documents, and PDFs.
+
+So what happens, exactly?
+
+When you type a web address into your browser (for our analogy that's like walking to the shop):
+
+    The browser goes to the DNS server, and finds the real address of the server that the website lives on (you find the address of the shop).
+    The browser sends an HTTP request message to the server, asking it to send a copy of the website to the client (you go to the shop and order your goods). This message, and all other data sent between the client and the server, is sent across your internet connection using TCP/IP.
+    If the server approves the client's request, the server sends the client a "200 OK" message, which means "Of course you can look at that website! Here it is", and then starts sending the website's files to the browser as a series of small chunks called data packets (the shop gives you your goods, and you bring them back to your house).
+    The browser assembles the small chunks into a complete web page and displays it to you (the goods arrive at your door — new shiny stuff, awesome!).
+
+Order in which component files are parsed
+
+Once the client’s request is approved, the server first sends back the HTML (index) file — index.html is commonly named as such, as it is the first file of a website to be parsed by the server.
+
+The HTML file can reference CSS and JavaScript, either in external files via <link> and <script> elements respectively, or embedded in the HTML page via <style> and <script> elements.
+
+From a server standpoint it is important to know the order in which these files are parsed when the response is sent back:
+
+    The HTML file is parsed first and, by looking inside that file, the server recognises which CSS and JavaScript files are referenced.
+    After the HTML has been parsed and a DOM tree structure has been generated from it, the linked CSS is then parsed, and styles are applied to the appropriate parts of the DOM tree. At this point, the visual representation of the page is painted to the screen, and the user sees the page.
+    The JavaScript usually gets parsed and applied to the page after the HTML and CSS.
+
+DNS explained
+
+Real web addresses aren't the nice, memorable strings you type into your address bar to find your favorite websites. They are special numbers that look like this: 63.245.215.20.
+
+This is called an IP address, and it represents a unique location on the web. However, it's not very easy to remember, is it? That's why Domain Name Servers were invented. These are special servers that match up a web address you type into your browser (like "mozilla.org") to the website's real (IP) address.
+
+Websites can be reached directly via their IP addresses. You can find the IP address of a website by typing its domain into a tool like IP Checker.
+Packets explained
+
+Earlier we used the term "packets" to describe the format in which the data is sent from server to client. What do we mean here? Basically, when data is sent across the web, it is sent as thousands of small chunks, so that many different web users can download the same website at the same time. If websites were sent as single big chunks, only one user could download one at a time, which obviously would make the web very inefficient and not much fun to use.
+See also
+
+    How the Internet works
+    HTTP — an Application-Level Protocol
+    HTTP: Let’s GET It On!
+    HTTP: Response Codes
+
+Credit
+
+Street photo: Street composing, by Kevin D.
+
+    Previous
+    Overview: Getting started with the web
+
+In this module
+
+    Installing basic software
+    What will your website look like?
+    Dealing with files
+    HTML basics
+    CSS basics
+    JavaScript basics
+    Publishing your website
+    How the web works
+
+Found a problem with this page?
+
+    Source on GitHub
+    Report a problem with this content on GitHub
+    Want to fix the problem yourself? See our Contribution guide.
+
+Last modified: Apr 20, 2021, by MDN contributors
+Change your language
+Select your preferred language
+Related Topics
+
+    Complete beginners start here!
+    Getting started with the Web
+        Getting started with the Web overview
+        Installing basic software
+        What will your website look like?
+        Dealing with files
+        HTML basics
+        CSS basics
+        JavaScript basics
+        Publishing your website
+        How the Web works
+    HTML — Structuring the Web
+    Introduction to HTML
+    Multimedia and embedding
+    HTML tables
+    CSS — Styling the Web
+    CSS first steps
+    CSS building blocks
+    Styling text
+    CSS layout
+    JavaScript — Dynamic client-side scripting
+    JavaScript first steps
+    JavaScript building blocks
+    Introducing JavaScript objects
+    Asynchronous JavaScript
+    Client-side web APIs
+    Web forms — Working with user data
+    Core forms learning pathway
+    Advanced forms articles
+    Accessibility — Make the web usable by everyone
+    Accessibility guides
+    Accessibility assessment
+    Tools and testing
+    Client-side web development tools
+    Introduction to client-side frameworks
+    React
+    Ember
+    Vue
+    Svelte
+    Angular
+    Git and GitHub
+    Cross browser testing
+    Server-side website programming
+    First steps
+    Django web framework (Python)
+    Express Web Framework (node.js/JavaScript)
+    Further resources
+    Common questions
+
+    Web Technologies
+    Learn Web Development
+    About MDN
+    Feedback
+
+    About
+    MDN Web Docs Store
+    Contact Us
+    Firefox
+
+MDN
+
+Mozilla
+
+© 2005-2021 Mozilla and individual contributors. Content is available under these licenses.
+
+    Terms
+    Privacy
+    Cookies
+`
+
+    // filter for valid characters
+    function isValidChar(char) {
+      return char.match(/[a-zA-Z0-9]/i);
+    }
+    // map and convert character to lowercase
+    function toLowercase(char) {
+      return char.toLowerCase();
+    }
+    // reduce characters into a total tally for each
+    function charTally(total, char) {
+      total[char] ? total[char] += 1 : total[char] = 1;
+      return total;
+    }
+    // add tally to character if its there otherwise create a new character tally 
+
+    // split the characters into an array
+    const result = text
+      .split('')
+      .filter(isValidChar)
+      .map(toLowercase)
+      .reduce(charTally, {});
+    console.log(result);
+    // sort everything to see the most used character on the page
+    const sortedTally = Object.entries(result).sort((a, b) => {
+      return b[1] - a[1];
+    })
+    console.log(sortedTally);
+
+  </script>
+</body>
+
+</html>
