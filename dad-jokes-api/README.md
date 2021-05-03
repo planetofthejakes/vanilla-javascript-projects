@@ -1,4 +1,4 @@
-#Dad Jokes API
+# Dad Jokes API
 
 We fetch and display a new dad joke on the screen when someone clicks a button. We've also added a fun little css loader in the button to animate while a joke is being fetched. 
 
