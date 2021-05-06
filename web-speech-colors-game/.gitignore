@@ -1,0 +1,10 @@
+# ignore node modules
+node_modules
+dist
+.parcel-cache
+package-lock.json
+.cache
+
+# ignore mac stuff
+.DS_Store
+
